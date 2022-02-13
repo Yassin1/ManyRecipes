@@ -1,5 +1,7 @@
 // import user model
 const User = require("./models/user.model")
+const File = require("./models/file.model")
+
 // connectg to mongoDB ATALS- CONNECTION TO DATABASE.
 const mongoose = require("mongoose")
 // database url
@@ -16,63 +18,15 @@ mongoose.connect(process.env.DATABASE_URI, (error) => {
 })
 
 
+const file = new File({
+    name: "abc.pdf",
+    text: "hello world",
+    owner: "62096dee5e690d987d6b4d7c"
 
+})
 
+file.save()
+.then((data)=>console.log(data))  
+.catch(err=>console.log(err))
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-// creating-SAVING THE USER 
-
-//  const user = new User({
-//     firstName: "ali",
-//     lastName: "joe",
-//      email: "joe@gmail.com",
-//      password: "joe1234"
-//  })
-//  user.save().catch(err=>
-//     console.log(err))
-
-
-
-// read fetach data from the database. filter 
- 
-// User.find({firstName:"ali"}).then((data) => {
-//  console.log(data)
-//  })
-
-
-
-
-
-// // update the data 
-// User.updateOne(
-//     { email:"yassin@gmail.com" },
-//     { firstName: "yassin" },
-//     (err,data)=> console.log(err,data)
-//  )
-
-
-// // delete user
-// User.deleteOne({
-//     email: "yassin@gmail.com",
-//     }).then((data)=>{
-//        console.log(data)
-//     })
 
