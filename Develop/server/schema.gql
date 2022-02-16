@@ -1,0 +1,27 @@
+type User {
+    _id: String!,
+    firstName: String!,
+    lasrName: String!,
+    email: String!,
+    country: String!,
+}
+
+type Recipe {
+    _id: String!,
+    country: String!,
+    ingridients: [String],
+    spiceLevel: Float,
+    procedure: String,
+}
+
+type Country {
+    _id: String!,
+    code: String!,
+    name: String!,
+}
+
+type Query {
+    recipie: [Recipe],
+    country: [Country],
+    user: [User]
+}

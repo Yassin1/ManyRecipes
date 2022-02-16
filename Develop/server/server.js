@@ -1,9 +1,9 @@
-// import user model
-const User = require("./models/user.model")
-const File = require("./models/file.model")
-
 // connectg to mongoDB ATALS- CONNECTION TO DATABASE.
 const mongoose = require("mongoose")
+const fs = require("fs");
+const { ApolloServer, gql } = require("apollo-server");
+const schema = fs.readFileSync("./schema.gql", "utf8");
+const typeDefs = gql(schema);
 // database url
 require("dotenv").config()
 
@@ -18,15 +18,10 @@ mongoose.connect(process.env.DATABASE_URI, (error) => {
 })
 
 
-const file = new File({
-    name: "abc.pdf",
-    text: "hello world",
-    owner: "62096dee5e690d987d6b4d7c"
+const server = new ApolloServer({
+    typeDefs,
+});
 
+server.listen().then(({ url }) => {
+    console.log(`Server running: ${url}`)
 })
-
-file.save()
-.then((data)=>console.log(data))  
-.catch(err=>console.log(err))
-
-
