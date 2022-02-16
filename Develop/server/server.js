@@ -3,6 +3,7 @@ const mongoose = require("mongoose")
 const fs = require("fs");
 const { ApolloServer, gql } = require("apollo-server");
 const schema = fs.readFileSync("./schema.gql", "utf8");
+const resolvers = require("./resolvers/index.js");
 const typeDefs = gql(schema);
 // database url
 require("dotenv").config()
@@ -19,6 +20,7 @@ mongoose.connect(process.env.DATABASE_URI, (error) => {
 
 
 const server = new ApolloServer({
+    resolvers,
     typeDefs,
 });
 

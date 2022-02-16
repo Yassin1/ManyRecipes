@@ -1,7 +1,7 @@
 type User {
     _id: String!,
     firstName: String!,
-    lasrName: String!,
+    lastName: String!,
     email: String!,
     country: String!,
 }
@@ -12,6 +12,7 @@ type Recipe {
     ingridients: [String],
     spiceLevel: Float,
     procedure: String,
+    userId: String!,
 }
 
 type Country {
