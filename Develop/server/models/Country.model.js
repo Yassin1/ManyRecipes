@@ -22,7 +22,7 @@ const countrySchema = mongoose.Schema({
     {
     seasons: true
 
-    
+
     })
 
 module.exports = mongoose.model("country", countrySchema)
