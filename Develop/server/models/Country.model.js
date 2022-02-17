@@ -1,18 +1,18 @@
 const mongoose = require("mongoose")
 
-const recipeSchema = mongoose.Schema({
+const countrySchema = mongoose.Schema({
 
     name: {
         type: String,
         required: true
     },
 
-    text: {
+    continent: {
         type: String,
         required: true
     },
 
-    owner: {
+    poulation: {
         type: String,
         required: true,
 
@@ -20,7 +20,9 @@ const recipeSchema = mongoose.Schema({
 },
 
     {
-        timestamps: true
+    seasons: true
+
+    
     })
 
-module.exports = mongoose.model("recipe", recipeSchema)
+module.exports = mongoose.model("country", countrySchema)
