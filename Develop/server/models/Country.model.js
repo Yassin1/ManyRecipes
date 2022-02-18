@@ -16,7 +16,11 @@ const countrySchema = mongoose.Schema({
         type: String,
         required: true,
 
-    }
+    },
+    typesOfFood: {
+        type: string,
+        required: true,
+    },
 },
 
     {

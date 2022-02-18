@@ -8,12 +8,29 @@ module.exports = {
                 ingridients: ["milk", "tea", "sugar"],
                 spiceLevel: 0,
                 procedure: "Mix all ingridients and put on fire for 5 mins",
-                userId: "123"
+                userId: "123",
+
+                
             }];
+
+
         },
+        user: async (parent, args, context) => {
+            return country.find({
+
+
+
+            })
+
+        },
+
+        
+
         user: async () => {
-            return User.find({})
+            return user.find({})
 
         }
     }
 }
+
+module.exports = mongoose.model("resolvers")

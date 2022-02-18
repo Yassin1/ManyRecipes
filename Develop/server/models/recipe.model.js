@@ -7,16 +7,22 @@ const recipeSchema = mongoose.Schema({
         required: true
     },
 
-    text: {
+    ingrediant: {
         type: String,
         required: true
     },
 
-    owner: {
+    process: {
         type: String,
         required: true,
 
-    }
+    },
+
+    spicelevel: {
+        type: string,
+        required: true,
+    },
+    
 },
 
     {
