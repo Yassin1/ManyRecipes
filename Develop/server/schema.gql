@@ -8,23 +8,55 @@ type User {
 
 type Recipe {
     _id: String!,
-    country: String!,
+    name: String!,
+    countryCode: String!,
     ingridients: [String],
     spiceLevel: Float,
     process: String,
     userId: String!,
+    country: Country
 }
 
 type Country {
     _id: String!,
-    code: String!,
+    countryCode: String!,
     name: String!,
+    continent: String!,
+    typesOfFood: String!,
+    population: Int!,
 }
 
-
+type LoginResponse {
+    err: String,
+    token: String
+}
 
 type Query {
     recipie: [Recipe],
     country: [Country],
     user: [User]
 }
+
+type Mutation {
+    signup(
+        firstName: String!,
+        lastName: String!,
+        email: String!,
+        password: String!,
+        country: String!
+    ):User,
+
+    login(
+        email: String!,
+        password: String!
+    ):LoginResponse
+
+    recipie(
+        name: String!,
+        countryCode: String!,
+        ingridients: [String!],
+        spiceLevel: Float,
+        process: String!,
+    ): Recipe
+}
+
