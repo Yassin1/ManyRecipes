@@ -1,33 +1,31 @@
 const mongoose = require("mongoose")
 
-const userSchema = mongoose.Schema({
+const countrySchema = mongoose.Schema({
 
-    firstName: {
+    name: {
         type: String,
-        required: true 
+        required: true
     },
 
-    lastName: {
-        type: String,
-        required: true 
-    },
-    email: {
-        type: String,
-        required: true,
-        unique: true
-
-    },
-    country: {
+    countryCode: {
         type: String,
         required: true,
     },
 
-    password: {
+    continent: {
         type: String,
-        required: true 
-    }
+        required: true
+    },
 
+    population: {
+        type: Number,
+        required: true,
+
+    },
+    typesOfFood: {
+        type: String,
+        required: true,
+    },
 })
 
-
-module.exports= mongoose.model("user", userSchema)
+module.exports = mongoose.model("country", countrySchema)

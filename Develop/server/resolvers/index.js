@@ -1,36 +1,44 @@
 const User = require("../models/user.model")
+const Country = require("../models/Country.model");
+const Recipe = require("../models/recipe.model");
+const jwt = require("../util/jwt");
 
 module.exports = {
     Query: {
         recipie: async (parent, args, context) => {
-            return [{
-                country: "pk",
-                ingridients: ["milk", "tea", "sugar"],
-                spiceLevel: 0,
-                procedure: "Mix all ingridients and put on fire for 5 mins",
-                userId: "123",
-
-                
-            }];
-
-
+            return Recipe.find({});
         },
         user: async (parent, args, context) => {
-            return country.find({
-
-
-
-            })
-
+            return User.find({});
         },
-
-        
-
-        user: async () => {
-            return user.find({})
-
+        country: async () => {
+            return Country.find({});
+        }
+    },
+    Recipe: {
+        country: async (parent) => {
+            const countries = await Country.find({ countryCode: parent.countryCode });
+            return countries[0];
+        }
+    },
+    Mutation: {
+        signup: async (parent, args, context) => {
+            const user = new User(args);
+            return user.save();
+        },
+        login: async (parent, args, context) => {
+            const user = await User.find(args);
+            if (user.length > 0) {
+                const token = jwt.sign({ id: user[0]._id });
+                return {token};
+            }
+            else {
+                return { err: "Incorrect credentials" }
+            }
+        },
+        recipie: async (parent, args, context) => {
+            const recipe = new Recipe({ ...args, userId: "123" });
+            return recipe.save();
         }
     }
 }
-
-module.exports = mongoose.model("resolvers")

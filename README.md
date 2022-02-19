@@ -3,8 +3,8 @@
 # Project Description 
 
 For our third project, we are making an application for Foodies and lovers of international Dishes.
-The application, will provide visitors with recipes from across the world that they can make in there own home.
-Recipes will very in spice level. 
+The application, will provide visitors with the national recipes from countires across the world that they can make in there own home.
+Recipes will very in spice level and ingredients. 
 
 
 
