@@ -11,7 +11,7 @@ type Recipe {
     country: String!,
     ingridients: [String],
     spiceLevel: Float,
-    procedure: String,
+    process: String,
     userId: String!,
 }
 

@@ -7,8 +7,8 @@ const recipeSchema = mongoose.Schema({
         required: true
     },
 
-    ingrediant: {
-        type: String,
+    ingridients: {
+        type: [String],
         required: true
     },
 
@@ -19,9 +19,19 @@ const recipeSchema = mongoose.Schema({
     },
 
     spicelevel: {
-        type: string,
+        type: String,
         required: true,
     },
+
+    country: {
+        type: String,
+        required: true,
+
+    },
+    userId: {
+        type: String,
+        requried: true,
+    }
     
 },
 

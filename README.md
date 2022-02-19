@@ -21,7 +21,6 @@ There will also be a history of all purchases,available only to the user that is
 # API'S
 
 https://gmail.googleapis.com - SENDING EMAIL 
-https://api.edamam.com - RECIPE SEARCH 
 https://api.stripe.com  For checkout 
 https://ant.design/  Design-css
 
