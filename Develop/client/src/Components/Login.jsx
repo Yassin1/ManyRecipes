@@ -21,7 +21,7 @@ function Login() {
 
         if (data?.login?.token) {
             Cookies.set("token", data?.login?.token);
-            window.location.reload();
+            window.location.href = "./";
         }
 
     }, [loading]);

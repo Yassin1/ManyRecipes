@@ -12,9 +12,12 @@ function Recipies () {
         //first paramater - a function
         () => {
             console.log("Recipies", data);
+            if (error) {
+                console.log("ERROR", error);
+            }
         }, 
         // second param = dependency array
-        [loading]
+        [loading, error]
     );
 
     return (
@@ -24,7 +27,8 @@ function Recipies () {
             </Typography.Title>
             <List
                 itemLayout="vertical"
-                dataSource={data?.recipie}
+                loading={loading}
+                dataSource={data?.recipie || []}
                 renderItem={(_recipie) => {
                     return (
                         <List.Item
@@ -42,12 +46,12 @@ function Recipies () {
                         >
                             <List.Item.Meta
                               avatar={<Avatar src="https://www.nicepng.com/png/full/186-1866063_dicks-out-for-harambe-sample-avatar.png" />}
-                              title={"Yassin"}
-                              description={"yassin@gmail"}
+                              title={_recipie?.addedBy?.firstName + " " + _recipie?.addedBy?.lastName}
+                              description={_recipie?.addedBy?.email}
                             />
                             <p>
                                 <b>{_recipie.name}</b>
-                                <span>({_recipie.country.name})</span>
+                                <span>({_recipie?.country?.name || "Unknown Country"})</span>
                             </p>
                             <p>
                                 {_recipie.ingridients.join(", ")}
