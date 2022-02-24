@@ -6,7 +6,7 @@ const schema = fs.readFileSync("./schema.gql", "utf8");
 const resolvers = require("./resolvers/index.js");
 const typeDefs = gql(schema);
 // database url
-require("dotenv").config()
+require("dotenv").config();
 
 // create a conncetion with the database
 mongoose.connect(process.env.DATABASE_URI, (error) => {
@@ -22,6 +22,16 @@ mongoose.connect(process.env.DATABASE_URI, (error) => {
 const server = new ApolloServer({
     resolvers,
     typeDefs,
+    context: (async ({ req }) => {
+        const token = req.headers.authorization;
+        if (token) {
+            const payload = verify(token.split(" ")[1]);
+            if (payload) {
+                console.log(payload)
+                return payload;
+            }
+        }
+    })
 });
 
 server.listen().then(({ url }) => {

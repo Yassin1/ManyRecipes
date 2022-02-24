@@ -19,6 +19,12 @@ module.exports = {
         country: async (parent) => {
             const countries = await Country.find({ countryCode: parent.countryCode });
             return countries[0];
+        },
+        addedBy: async (parent) => {
+            if (parent.userId === "123abc" || parent.userId === "123")
+                return null;
+            const user = await User.findById(parent.userId);
+            return user;
         }
     },
     Mutation: {
@@ -37,7 +43,7 @@ module.exports = {
             }
         },
         recipie: async (parent, args, context) => {
-            const recipe = new Recipe({ ...args, userId: "123" });
+            const recipe = new Recipe({ ...args, userId: context.id });
             return recipe.save();
         }
     }

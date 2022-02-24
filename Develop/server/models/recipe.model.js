@@ -18,25 +18,23 @@ const recipeSchema = mongoose.Schema({
 
     },
 
-    spicelevel: {
+    spiceLevel: {
+        type: Number,
+        required: true,
+    },
+
+    countryCode: {
         type: String,
         required: true,
     },
 
-    country: {
-        type: String,
-        required: true,
-
-    },
     userId: {
         type: String,
-        requried: true,
+        required: true,
     }
     
-},
-
-    {
-        timestamps: true
-    })
+},  {
+    timestamps: true
+});
 
 module.exports = mongoose.model("recipe", recipeSchema)

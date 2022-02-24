@@ -14,7 +14,8 @@ type Recipe {
     spiceLevel: Float,
     process: String,
     userId: String!,
-    country: Country
+    country: Country,
+    addedBy: User
 }
 
 type Country {
@@ -59,4 +60,3 @@ type Mutation {
         process: String!,
     ): Recipe
 }
-

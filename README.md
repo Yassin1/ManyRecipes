@@ -2,9 +2,8 @@
 
 # Project Description 
 
-For our third project, we are making an application for Foodies and lovers of international Dishes.
-The application, will provide visitors with the national recipes from countires across the world that they can make in there own home.
-Recipes will very in spice level and ingredients. 
+For our third project, we are making an application for Foodies and lovers of international Dishes.The application, will provide visitors with a plotform to share and recipes from across the world that they can make in there own home.
+Recipes will very in spice level. 
 
 
 
@@ -21,6 +20,7 @@ There will also be a history of all purchases,available only to the user that is
 # API'S
 
 https://gmail.googleapis.com - SENDING EMAIL 
+https://api.edamam.com - RECIPE SEARCH 
 https://api.stripe.com  For checkout 
 https://ant.design/  Design-css
 

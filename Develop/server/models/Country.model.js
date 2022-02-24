@@ -7,13 +7,18 @@ const countrySchema = mongoose.Schema({
         required: true
     },
 
+    countryCode: {
+        type: String,
+        required: true,
+    },
+
     continent: {
         type: String,
         required: true
     },
 
-    poulation: {
-        type: String,
+    population: {
+        type: Number,
         required: true,
 
     },
@@ -21,12 +26,6 @@ const countrySchema = mongoose.Schema({
         type: String,
         required: true,
     },
-},
-
-    {
-    seasons: true
-
-
-    })
+})
 
 module.exports = mongoose.model("country", countrySchema)
