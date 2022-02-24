@@ -1,8 +1,8 @@
 import { gql } from "@apollo/client";
 
 export const GET_RECIPIES = gql`
-    query {
-      recipie {
+query Recipie($country: String) {
+    recipie(country: $country) {
         _id
         name
         ingridients

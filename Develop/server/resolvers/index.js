@@ -1,12 +1,14 @@
 const User = require("../models/user.model")
 const Country = require("../models/Country.model");
-const Recipe = require("../models/recipe.model");
+const Recipie = require("../models/recipe.model");
 const jwt = require("../util/jwt");
 
 module.exports = {
     Query: {
         recipie: async (parent, args, context) => {
-            return Recipe.find({});
+            if (args.country)
+                 return Recipie.find({countryCode: args.country})
+            else return Recipie.find({})
         },
         user: async (parent, args, context) => {
             return User.find({});
@@ -43,8 +45,8 @@ module.exports = {
             }
         },
         recipie: async (parent, args, context) => {
-            const recipe = new Recipe({ ...args, userId: context.id });
-            return recipe.save();
+            const recipie = new Recipie({ ...args, userId: context.id });
+            return recipie.save();
         }
     }
 }

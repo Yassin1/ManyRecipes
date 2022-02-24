@@ -16,9 +16,23 @@ function TopBar () {
                     </Link>
                     {
                         isLoggedIn ?
+                        <> 
                         <Link to="/add-recipie">
                             Add Recipie
-                        </Link> : 
+                    
+                        </Link> 
+                        
+                        <a
+                        
+                        onClick={
+                            () => {
+                                Cookies.remove("token")
+                                window.location.reload()
+                            }
+                        }> Logout</a>
+                        </>
+                            :
+
                         <>
                             <Link to="/login">
                                 Login
@@ -26,6 +40,7 @@ function TopBar () {
                             <Link to="/signup">
                                 Sign Up
                             </Link>
+
                         </>
                     }
                 </Space>

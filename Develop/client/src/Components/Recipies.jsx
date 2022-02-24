@@ -1,32 +1,73 @@
 import React from "react";
 import { GET_RECIPIES } from "../gql";
-import { useQuery } from "@apollo/client";
+import { useLazyQuery } from "@apollo/client";
 import { Typography } from 'antd';
 import { List, Avatar, Space } from 'antd';
+import { Input } from 'antd';
+import { Select } from 'antd';
 
-function Recipies () {
+const { Option } = Select;
 
-    const { data, loading, error } = useQuery(GET_RECIPIES);
+function Recipies() {
+
+    const [countryFilter, setCountryFilter] = React.useState("")
+    const [getRecipies, { data, loading, error }] = useLazyQuery(GET_RECIPIES);
 
     React.useEffect(
-        //first paramater - a function
+
         () => {
             console.log("Recipies", data);
             if (error) {
                 console.log("ERROR", error);
             }
-        }, 
-        // second param = dependency array
+        },
+
         [loading, error]
     );
+
+    React.useEffect(
+
+        () => {
+            getRecipies(
+                {
+                    variables: {
+                        country: countryFilter
+                    }
+                }
+
+            )
+        },
+
+        [countryFilter]
+
+
+    )
 
     return (
         <>
             <Typography.Title>
                 Recipies
             </Typography.Title>
+            <div>
+
+                <Input placeholder="countryfilter" onChange={(e) => setCountryFilter(e.target.value)} />
+                
+
+  <Select
+    placeholder="Select a counry"
+    optionFilterProp="children"
+    onChange={(e) => setCountryFilter(e)}
+    
+    
+  >
+    <Option value="PK">Pakistan</Option>
+    <Option value="US"> UNITED STATES </Option>
+    <Option value="tom">Tom</Option>
+  </Select>,
+
+          </div>
             <List
-                itemLayout="vertical"
+                itemLayout=""
                 loading={loading}
                 dataSource={data?.recipie || []}
                 renderItem={(_recipie) => {
@@ -35,9 +76,9 @@ function Recipies () {
 
                             actions={[
                                 <a href={"/recipie/" + _recipie._id}>
-                                <span>
-                                    View
-                                </span>
+                                    <span>
+                                        View
+                                    </span>
                                 </a>,
                                 <span>
                                     Donate
@@ -45,9 +86,9 @@ function Recipies () {
                             ]}
                         >
                             <List.Item.Meta
-                              avatar={<Avatar src="https://www.nicepng.com/png/full/186-1866063_dicks-out-for-harambe-sample-avatar.png" />}
-                              title={_recipie?.addedBy?.firstName + " " + _recipie?.addedBy?.lastName}
-                              description={_recipie?.addedBy?.email}
+                                avatar={<Avatar src="https://www.nicepng.com/png/full/186-1866063_dicks-out-for-harambe-sample-avatar.png" />}
+                                title={_recipie?.addedBy?.firstName + " " + _recipie?.addedBy?.lastName}
+                                description={_recipie?.addedBy?.email}
                             />
                             <p>
                                 <b>{_recipie.name}</b>

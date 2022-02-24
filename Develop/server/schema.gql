@@ -33,9 +33,10 @@ type LoginResponse {
 }
 
 type Query {
-    recipie: [Recipe],
+    recipie( country: String ): [Recipe],
     country: [Country],
-    user: [User]
+    user: [User],
+
 }
 
 type Mutation {
