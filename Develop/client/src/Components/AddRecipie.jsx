@@ -21,7 +21,7 @@ function AddRecipie() {
             window.alert("ERROR");
         }
         if (data) {
-        //    window.location.href = "./login";
+        
         }
     }, [loading]);
 

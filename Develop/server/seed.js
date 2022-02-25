@@ -46,6 +46,3 @@ Country.insertMany(countries)
 .then(() => console.log("Added countries to DB"))
 .catch(err => console.log("Error while adding countries to DB", err));
 
-// Recipe.insertMany(recipies)
-// .then(() => console.log("Added recipies to DB"))
-// .catch(err => console.log("Error while adding recipies to DB", err));

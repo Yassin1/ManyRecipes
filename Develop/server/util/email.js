@@ -7,8 +7,8 @@ exports.sendEmailWithNodemailer = (emailData) => {
     secure: false,
     requireTLS: true,
     auth: {
-      user: "tazrahat96@gmail.com", // MAKE SURE THIS EMAIL IS YOUR GMAIL FOR WHICH YOU GENERATED APP PASSWORD
-      pass: "gtuetvmanbmdlipo", // MAKE SURE THIS PASSWORD IS YOUR GMAIL APP PASSWORD WHICH YOU GENERATED EARLIER.
+      user: "tazrahat96@gmail.com", 
+      pass: "gtuetvmanbmdlipo", 
     },
     tls: {
       ciphers: "SSLv3",

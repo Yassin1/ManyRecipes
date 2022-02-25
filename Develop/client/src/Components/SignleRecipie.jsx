@@ -13,13 +13,7 @@ function SingleRecipie () {
             }
         >
             
-            <div>
-                <Button
-                    onClick={() => window.history.back()}
-                >
-                    Back
-                </Button>
-            </div>
+
             <Divider />
             <div>
                 <h3>Ingridients</h3>
@@ -46,6 +40,13 @@ function SingleRecipie () {
                 <p>1. Mix all the ingridients</p>
                 <p>2. Put on Fire</p>
                 <p>3. After it starts boiling, take it off from the fire</p>
+            </div>
+            <div>
+                <Button
+                    onClick={() => window.history.back()}
+                >
+                    Back
+                </Button>
             </div>
         </Card>
     )

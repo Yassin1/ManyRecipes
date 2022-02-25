@@ -50,7 +50,7 @@ function Recipies() {
             </Typography.Title>
             <div>
 
-                <Input placeholder="countryfilter" onChange={(e) => setCountryFilter(e.target.value)} />
+                <Input placeholder="Search by country" onChange={(e) => setCountryFilter(e.target.value)} />
                 
 
   <Select
@@ -60,9 +60,15 @@ function Recipies() {
     
     
   >
-    <Option value="PK">Pakistan</Option>
     <Option value="US"> UNITED STATES </Option>
-    <Option value="tom">Tom</Option>
+    <Option value="MA">Morocco</Option>
+    <Option value="IN">india</Option>
+    <Option value="ET">Ethiopean</Option>
+    <Option value="MX">mexican</Option>
+    <Option value="pk">Pakistan</Option>
+    <Option value="MY">Malaysia</Option>
+    <Option value="LB">Lebanon</Option>
+    <Option value="LV">latvia</Option>
   </Select>,
 
           </div>
@@ -75,13 +81,14 @@ function Recipies() {
                         <List.Item
 
                             actions={[
-                                <a href={"/recipie/" + _recipie._id}>
-                                    <span>
-                                        View
-                                    </span>
-                                </a>,
+                                // <a href={"/recipie/" + _recipie._id}>
+                                //     <span>
+                                //         View
+                                //     </span>
+                                // </a>,
                                 <span>
-                                    Donate
+                                
+                                    <a href="">Donate</a>
                                 </span>
                             ]}
                         >
