@@ -51,27 +51,27 @@ function Recipies() {
             <div>
 
                 <Input placeholder="Search by country" onChange={(e) => setCountryFilter(e.target.value)} />
-                
 
-  <Select
-    placeholder="Select a counry"
-    optionFilterProp="children"
-    onChange={(e) => setCountryFilter(e)}
-    
-    
-  >
-    <Option value="US"> UNITED STATES </Option>
-    <Option value="MA">Morocco</Option>
-    <Option value="IN">india</Option>
-    <Option value="ET">Ethiopean</Option>
-    <Option value="MX">mexican</Option>
-    <Option value="pk">Pakistan</Option>
-    <Option value="MY">Malaysia</Option>
-    <Option value="LB">Lebanon</Option>
-    <Option value="LV">latvia</Option>
-  </Select>,
 
-          </div>
+                <Select
+                    placeholder="Select a counry"
+                    optionFilterProp="children"
+                    onChange={(e) => setCountryFilter(e)}
+
+
+                >
+                    <Option value="US"> UNITED STATES </Option>
+                    <Option value="MA">Morocco</Option>
+                    <Option value="IN">india</Option>
+                    <Option value="ET">Ethiopean</Option>
+                    <Option value="MX">mexican</Option>
+                    <Option value="pk">Pakistan</Option>
+                    <Option value="MY">Malaysia</Option>
+                    <Option value="LB">Lebanon</Option>
+                    <Option value="LV">latvia</Option>
+                </Select>,
+
+            </div>
             <List
                 itemLayout=""
                 loading={loading}
@@ -86,10 +86,35 @@ function Recipies() {
                                 //         View
                                 //     </span>
                                 // </a>,
-                                <span>
-                                
-                                    <a href="">Donate</a>
-                                </span>
+
+                                // <button.addEventListener("click", () => {
+                                //     fetch('/creat-checkout-session', {
+                                //         method: 'POST',
+                                //         headers: {
+                                //             'content-type': 'application/json'
+                                //         },
+
+                                //         body: JSON.stringify({
+                                //             items: [
+                                //                 { id: 1, quanntity: 3 },
+                                //                 { id: 2, quanntity: 1 },
+                                //             ]
+                                //         })
+
+                                //     }).then(res => {
+                                //         if (res.ok) return res.json()
+
+                                //     }).then(({ URL }) => {
+                                //         window.location = url
+
+                                //     })
+
+                                // })
+
+
+
+
+
                             ]}
                         >
                             <List.Item.Meta

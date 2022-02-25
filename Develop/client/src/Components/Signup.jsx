@@ -27,7 +27,7 @@ function Signup() {
 
 	return (
         <div className="login-container">
-		<Card title="Signup" className="login-form">
+		<Card title="Login" className="login-form">
             <Space direction="vertical">
 			<Input
 				placeholder="First Name"
