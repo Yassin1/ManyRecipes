@@ -32,11 +32,16 @@ type LoginResponse {
     token: String
 }
 
+type StripeSession {
+    id: String,
+}
+
 type Query {
     recipie( country: String ): [Recipe],
     country: [Country],
     user: [User],
-
+    stripeSession: StripeSession,
+    singlerecipie(id: String): Recipe
 }
 
 type Mutation {

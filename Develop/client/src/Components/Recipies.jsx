@@ -1,5 +1,5 @@
 import React from "react";
-import { GET_RECIPIES } from "../gql";
+import { GET_RECIPIES, STRIPE_SESSION } from "../gql";
 import { useLazyQuery } from "@apollo/client";
 import { Typography } from 'antd';
 import { List, Avatar, Space } from 'antd';
@@ -12,6 +12,7 @@ function Recipies() {
 
     const [countryFilter, setCountryFilter] = React.useState("")
     const [getRecipies, { data, loading, error }] = useLazyQuery(GET_RECIPIES);
+    const [getStripeToken, { data: stripeData, loading: stripeLoading, error: StripeErr }] = useLazyQuery(STRIPE_SESSION);
 
     React.useEffect(
 
@@ -42,6 +43,25 @@ function Recipies() {
 
 
     )
+    React.useEffect(() => {
+
+        if (stripeLoading)
+            return;
+        console.log(
+            "error",
+            StripeErr,
+        )
+        if (stripeData?.stripeSession?.id) {
+
+
+            const stripe = window.Stripe('pk_test_swNqPiBxZhZMRbTa13BNPB3500XgQp9Qn4'); // replace by public key. 
+            stripe?.redirectToCheckout({
+                sessionId: stripeData.stripeSession.id,
+            }).then(function (result) {
+                console.log(result);
+            });
+        }
+    }, [stripeLoading]);
 
     return (
         <>
@@ -81,35 +101,26 @@ function Recipies() {
                         <List.Item
 
                             actions={[
-                                // <a href={"/recipie/" + _recipie._id}>
-                                //     <span>
-                                //         View
-                                //     </span>
-                                // </a>,
+                                <a href={"/recipie/" + _recipie._id}>
+                                    <span>
+                                        View
+                                    </span>
+                                </a>,
 
-                                // <button.addEventListener("click", () => {
-                                //     fetch('/creat-checkout-session', {
-                                //         method: 'POST',
-                                //         headers: {
-                                //             'content-type': 'application/json'
-                                //         },
 
-                                //         body: JSON.stringify({
-                                //             items: [
-                                //                 { id: 1, quanntity: 3 },
-                                //                 { id: 2, quanntity: 1 },
-                                //             ]
-                                //         })
+                                <a onClick={() => {
+                                    window.alert(1)
+                                    getStripeToken()
+                                }}>
+                                    <span>
+                                        Donate
+                                    </span>
+                                </a>,
 
-                                //     }).then(res => {
-                                //         if (res.ok) return res.json()
 
-                                //     }).then(({ URL }) => {
-                                //         window.location = url
 
-                                //     })
 
-                                // })
+
 
 
 

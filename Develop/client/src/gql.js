@@ -49,6 +49,17 @@ export const SIGNUP = gql`
     }
 `;
 
+
+
+export const STRIPE_SESSION = gql`
+  query  StripSession{
+
+    stripeSession {
+      id
+    }
+
+}`
+
 export const ADD_RECIPIE = gql`
     mutation ADD_RECIPIE (
         $name: String!,
