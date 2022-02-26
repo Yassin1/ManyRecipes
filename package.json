@@ -1,0 +1,19 @@
+{
+  "name": "manyrecipes",
+  "version": "1.0.0",
+  "description": "For our third project, we are making an application for Foodies and lovers of international Dishes.The application, will provide visitors with a plotform to share and recipes from across the world that they can make in there own home.\r Recipes will very in spice level.",
+  "main": "server/server.js",
+  "scripts": {
+    "start": "cd server && npm start && cd ../client && npm run start"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Yassin1/ManyRecipes.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Yassin1/ManyRecipes/issues"
+  },
+  "homepage": "https://github.com/Yassin1/ManyRecipes#readme"
+}
