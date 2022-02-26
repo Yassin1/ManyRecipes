@@ -2,14 +2,14 @@ import React from "react";
 import Cookies from "js-cookie";
 import { Link } from "react-router-dom";
 import { Space } from "antd";
-
+import './Topbar.scss';
 function TopBar () {
 
     const [isLoggedIn] = React.useState(Cookies.get("token"));
 
     return (
-        <div>
-            <span style={{ float: "right" }}>
+        <div >
+            <span id="yup" style={{ float: "right" }}>
                 <Space size={30}>
                     <Link to="/">
                         Home
