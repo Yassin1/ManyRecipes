@@ -5,14 +5,11 @@ const { ApolloServer, gql } = require("apollo-server");
 const schema = fs.readFileSync("./schema.gql", "utf8");
 const resolvers = require("./resolvers/index.js");
 const typeDefs = gql(schema);
-const dotenv = require("dotenv");
-
-const PORT = process.env.PORT || 3000;
 // database url
 require("dotenv").config();
 
 // create a conncetion with the database
-mongoose.connect(process.env.MONGODB_URI , (error) => {
+mongoose.connect(process.env.DATABASE_URI, (error) => {
     if (error) {
         console.log(error)
     }
@@ -37,7 +34,6 @@ const server = new ApolloServer({
     })
 });
 
-server.listen(PORT).then(({ url }) => {
+server.listen().then(({ url }) => {
     console.log(`Server running: ${url}`)
 })
-
